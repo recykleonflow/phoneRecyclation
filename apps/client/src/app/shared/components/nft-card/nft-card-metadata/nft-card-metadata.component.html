@@ -1,0 +1,83 @@
+
+<div class="metadata">
+    <div class="left-arrow">
+        <button class="arrow-button" [disabled]="actualStatsIndex <= 1" (click)="onLeftArrow()"><mat-icon>arrow_back_ios</mat-icon></button>
+    </div>
+    <div class="data">
+        <div #stats2 class="stats">
+            <div class="stats-title">Materials Retrieved</div>
+            <recykle-mono-material-stats
+                                                                             [metric]="'value'"
+                                                                             [isLoading]="materialsLoading"
+                                                                             [materials]="materials$ | async">
+
+            </recykle-mono-material-stats>
+        </div>
+        <div #stats3 class="stats">
+            <div class="stats-title">Phone History</div>
+            <div *ngIf="historyLoading" class="loader-wrapper">
+              <div class="mini-loader"></div>
+            </div>
+            <div class="history-item" *ngFor="let item of (history$ | async)">
+                <div class="item-state">{{'recycleState.' + item.state | translate}}</div>
+                <div class="item-date">{{item.createdAt | date:'medium'}}</div>
+            </div>      
+        </div>
+        <div #stats4 class="stats">
+            <div class="stats-title">Recycling Center</div>
+            <div *ngIf="historyLoading" class="loader-wrapper">
+              <div class="mini-loader"></div>
+            </div>
+            <div *ngIf="!historyLoading">
+              <div *ngIf="recyclingCenter$ | async" class="stats-text">
+                Handled by: <span style="font-weight: 500;">{{recyclingCenter$ | async}}</span>
+              </div>
+              <div *ngIf="!(recyclingCenter$ | async)" class="stats-text">
+                  Handled by: <span style="font-weight: 500;">Recycling Factory Slovakia, Bratislava</span>
+              </div>
+              <div class="stats-image" [style.background-image]="'url(' + '../../../../../assets/images/r2_badge.png' + ')'"></div>
+            </div>
+        </div>
+        <div #stats1 class="stats">
+            <div class="stats-title">Recycling Report</div>
+            <div class="report-text">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <mat-icon class="report-icon">check_circle</mat-icon><span class="report-text">Data Securely Erased</span>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>Personal data was securely wiped using industry-standard techniques, adhering to GDPR compliance guidelines, ensuring privacy protection.</p>
+                    <span class="gdpr-image" [style.background-image]="'url(' + '../../../../../assets/images/gdpr_badge.png' + ')'"></span>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel *ngIf="userPhone.batteryExtracted">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <mat-icon class="report-icon">check_circle</mat-icon><span class="report-text">Battery Recycled</span>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>The battery was sent to a specialized facility, where valuable metals like lithium, cobalt, and nickel were extracted and recycled.</p>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel *ngIf="userPhone.materialsExtracted">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <mat-icon class="report-icon">check_circle</mat-icon><span class="report-text">Metal Recovery</span>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>Valuable metals from circuit boards were recovered using chemical or thermal processes, promoting resource reuse in manufacturing.</p>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel *ngIf="userPhone.materialsExtracted">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <mat-icon class="report-icon">check_circle</mat-icon><span class="report-text">Plastic Components Recycled</span>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>Plastic components were cleaned, melted, and pelletized for use in new plastic products, reducing dependency on raw materials.</p>
+                  </mat-expansion-panel>
+            </div>
+        </div>
+    </div>
+    <div class="right-arrow">
+        <button class="arrow-button" [disabled]="actualStatsIndex >= maxStatsIndex" (click)="onRightArrow()"><mat-icon>arrow_forward_ios</mat-icon></button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<ng-container [ngSwitch]="platform">
+    <ng-container *ngSwitchCase="PlatformType.WEB">
+        <div class="wrapper" [style.display]="loadingService.isLoading ? 'none' : 'block'">
+            <div class="sidebar" data-color="danger" data-background-color="white">
+                <app-sidebar [routes]="routes"></app-sidebar>
+                <div class="sidebar-background"></div>
+            </div>
+            <div class="main-panel">
+                <app-navbar></app-navbar>
+                <router-outlet></router-outlet>
+                <div>
+                    <app-footer></app-footer>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="PlatformType.IOS">
+        <ion-app>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-title text-left>
+                        <img src="assets/images/recykle_logo_white.png"/>
+                    </ion-title>
+                    <ion-buttons slot="end">
+                        <mat-icon (click)="connectWallet()">wallet</mat-icon>
+                        <mat-icon (click)="signOut()">logout</mat-icon>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content [style.display]="loadingService.isLoading ? 'none' : 'block'">
+                <ion-tabs>
+                    <ion-tab-bar slot="bottom">
+                        <ng-container *ngFor="let route of routes">
+                            <ion-tab-button *ifRole="route.roles"
+                                            routerLinkActive="is-active"
+                                            [routerLink]="route.path"
+                            >
+                                <mat-icon>{{route.icon}}</mat-icon>
+                                <ion-label>{{route.title}}</ion-label>
+                            </ion-tab-button>
+                        </ng-container>
+                    </ion-tab-bar>
+                </ion-tabs>
+            </ion-content>
+        </ion-app>
+
+
+    </ng-container>
+</ng-container>
+
+
+<app-loading-page *ngIf="loadingService.isLoading"></app-loading-page>

@@ -1,0 +1,8 @@
+<div class="state-wrapper">
+    <div class="state-icon">
+        <div class="icon-fill" [class.final]="finalStates[state]">
+            <mat-icon>{{recyclationIcons[state]}}</mat-icon>
+        </div>
+    </div>
+    <div class="state-text">{{('recycleState.'+state) | translate}}</div>
+</div>

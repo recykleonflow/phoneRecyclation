@@ -1,0 +1,52 @@
+<div class="form-wrapper">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <h3>Sign Up</h3>
+            <div class="formGroup">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput
+                           type="email"
+                           class="formControl"
+                           #userEmail
+                           required
+                    />
+                </mat-form-field>
+            </div>
+            <div class="formGroup">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input
+                            matInput
+                            type="password"
+                            class="formControl"
+                            placeholder="Password"
+                            #userPwd
+                            required
+                    />
+                </mat-form-field>
+            </div>
+            <div class="action-button">
+                <button mat-raised-button class="btn btn-info btn-lg"
+                        (click)="authService.SignUp(userEmail.value, userPwd.value)"
+                >Sign up
+                </button>
+            </div>
+
+            <div class="social">
+                <a (click)="authService.googleSignIn()">
+                    <img src="/assets/icons/google.svg">
+                </a>
+                <a (click)="authService.facebookSignIn()">
+                    <img class="facebook-icon" src="/assets/icons/facebook.svg">
+                </a>
+            </div>
+        </div>
+        <div class="redirectToLogin">
+          <span
+          >Already have an account?
+            <a class="redirect" routerLink="/public/sign-in">Log In</a></span
+          >
+        </div>
+    </div>
+</div>

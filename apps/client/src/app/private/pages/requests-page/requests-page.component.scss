@@ -1,0 +1,105 @@
+@import 'colors';
+
+::ng-deep {
+  video {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.recycle-action {
+  margin-top: 8px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.camera {
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+
+  zxing-scanner {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.fullscreen {
+
+  }
+
+  button {
+    position: absolute;
+    bottom: 200px;
+    background-color: $primary-orange;
+  }
+}
+
+app-loading {
+  align-self: center;
+}
+
+app-phone-table {
+  display: block;
+  margin: 15px;
+  font-size: 14px;
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 30px 10px;
+  width: 100%;
+
+  mat-form-field {
+    width: 50%;
+  }
+}
+
+recykle-mono-ongoing-requests-table {
+  display: block;
+  width: 100%;
+}
+
+.selection-actions {
+  display: block;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+}
+
+.scan-button {
+  margin-bottom: 25px;
+}
+
+.state-select {
+  display: flex;
+  flex-wrap: wrap;
+
+  .qr-galery {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+  }
+
+  .change-settings {
+    mat-form-field {
+      display: block;
+    }
+  }
+}
+
+.phone-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}

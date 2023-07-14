@@ -1,0 +1,99 @@
+@import 'colors';
+
+.phone-image {
+  width: 70%;
+  height: 70%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+img {
+  width: 70px;
+  height: auto;
+  align-self: flex-start;
+}
+
+.left-side {
+  color: white;
+
+  mat-card-subtitle {
+    color: rgba(204, 204, 204, 0.15);
+  }
+}
+
+.phone-item {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  background: #212121;
+}
+
+recykle-mono-state-lifecycle {
+  width: 100%;
+}
+
+.phone-content {
+  display: flex;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.item-content {
+  display: flex;
+  width: 100%;
+}
+
+.item-header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item-image {
+  margin-left: -15px;
+  min-width: 200px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  img {
+    height: 150px
+  }
+}
+
+.get-card-button {
+  font-size: 10px;
+    font-weight: bold;
+    background: $primary-blue;
+    width: 120px;
+  position: absolute;
+  top: 50%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.shake{
+  -webkit-animation: shake 1.2s 2;
+  animation: shake 1.2s 2;
+}
+@keyframes shake{
+  0%{transform: rotate(0deg);}
+  10%{transform: rotate(-5deg);}
+  20%{transform: rotate(5deg);}
+  30%{transform: rotate(-4deg);}
+  40%{transform: rotate(4deg);}
+  50%{transform: rotate(-3deg);}
+  60%{transform: rotate(3deg);}
+  70%{transform: rotate(-2deg);}
+  80%{transform: rotate(2deg);}
+  90%{transform: rotate(0deg);}
+  100%{transform: rotate(0deg);}
+}

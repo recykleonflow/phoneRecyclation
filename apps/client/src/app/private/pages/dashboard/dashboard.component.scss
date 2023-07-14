@@ -1,0 +1,30 @@
+@import 'colors';
+
+.highlight {
+  font-size: 32px;
+  color: $primary-blue
+}
+
+.chart-wrapper {
+  z-index: 6;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  text-align: center;
+  //border: 1px solid $primary-blue;
+
+  recykle-mono-graph {
+    //height: 500px;
+    width: 550px;
+    display: block;
+    margin: auto;
+  }
+}
+
+app-loading-page {
+  margin: auto;
+  display: block;
+}
+

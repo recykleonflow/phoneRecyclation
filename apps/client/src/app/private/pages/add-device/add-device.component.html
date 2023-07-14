@@ -1,0 +1,167 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title">Add new device</h4>
+                <p class="card-category">Fill phone data</p>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="addPhoneForm">
+                    <h2>User detail</h2>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Donor Email</mat-label>
+                        <input type="text"
+                               aria-label="Number"
+                               matInput
+                               formControlName="userEmail"
+                               [matAutocomplete]="autoDonor">
+                        <mat-autocomplete autoActiveFirstOption #autoDonor="matAutocomplete">
+                            <mat-option *ngFor="let user of users"
+                                        [value]="user.email">
+                                {{user.email}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Phone number</mat-label>
+                        <input type="text"
+                               aria-label="Phone number"
+                               matInput
+                               formControlName="donorPhoneNumber">
+                        <div *ngIf="userLoading" matSuffix class="mini-loader"></div>
+                    </mat-form-field>
+
+                    <h2>Phone data</h2>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Imei</mat-label>
+                        <input #imei maxlength="15" matInput formControlName="imei">
+                        <div *ngIf="imeiChecking" matSuffix class="mini-loader"></div>
+                        <mat-hint align="end">{{imei.value.length}}/15</mat-hint>
+                        <mat-error *ngIf="addPhoneForm.controls.imei.errors?.['invalidImei']">
+                            The imei is already being used</mat-error>
+<!--                        <mat-icon matSuffix (click)="openScanner()">qr_code_scanner</mat-icon>-->
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Phone model</mat-label>
+                        <input type="text"
+                               aria-label="Number"
+                               matInput
+                               formControlName="model"
+                               [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayModel">
+                            <mat-option *ngFor="let model of filteredModels$ | async"
+                                        [value]="model">
+                                {{model.model}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                
+                    <div class="phone-details" *ngIf="selectedPhone">
+<!--                        <p>Brand: {{selectedPhone.brand}}</p>-->
+                        <h2>Condition</h2>
+                        <div>
+                            <label class="example-value-label">
+                                {{'phoneState.' + mapNumberToAppeal(addPhoneForm.get('visualCondition')?.value || 0) | translate}}
+                            </label>
+                        </div>
+                        <mat-slider [max]="4"
+                                    [min]="0"
+                                    [step]="1"
+                                    [showTickMarks]="true">
+                            <input matSliderThumb formControlName="visualCondition">
+                        </mat-slider>
+
+                        <recykle-mono-material-stats
+                                *ngIf="selectedPhone.materials"
+                                [materials]="selectedPhone.materials"></recykle-mono-material-stats>
+                    </div>
+                
+                    <div *ngIf="selectedPhone"
+                         [formGroup]="phoneDetailForm" class="detail">
+<!--                        <h2>Details</h2>-->
+<!--                        <mat-form-field class="full-width" appearance="fill">-->
+<!--                            <mat-label>Brand</mat-label>-->
+<!--                            <input matInput formControlName="brand">-->
+<!--                        </mat-form-field>-->
+<!--                -->
+<!--                        <mat-form-field class="full-width" appearance="fill">-->
+<!--                            <mat-label>Model</mat-label>-->
+<!--                            <input matInput formControlName="model">-->
+<!--                        </mat-form-field>-->
+
+                        <!--
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Display size</mat-label>
+                            <input matInput formControlName="displaysize">
+                        </mat-form-field>
+                
+                        <mat-form-field class="half-width" appearance="fill">
+                            <mat-label>Pixels</mat-label>
+                            <input matInput formControlName="pixels">
+                        </mat-form-field>
+                
+                        <mat-form-field class="half-width" appearance="fill">
+                            <mat-label>PPI</mat-label>
+                            <input matInput formControlName="ppi">
+                        </mat-form-field>
+                        
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Price</mat-label>
+                            <input matInput formControlName="price">
+                        </mat-form-field>
+                
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Release status</mat-label>
+                            <input matInput formControlName="release_status">
+                        </mat-form-field>
+                        
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Ram</mat-label>
+                            <mat-select formControlName="ram" name="ram">
+                                <mat-option *ngFor="let ram of selectedPhone.ram_list" [value]="ram">
+                                    {{ram}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Model</mat-label>
+                            <mat-select formControlName="model" name="model">
+                                <mat-option *ngFor="let model of selectedPhone.model_list" [value]="model">
+                                    {{model}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        -->
+<!--                        <mat-form-field class="full-width" appearance="fill">-->
+<!--                            <mat-label>Image Generation Method</mat-label>-->
+<!--                            <mat-select [(value)]="selectedGenerationMethod">-->
+<!--                                <mat-option *ngFor="let method of generationMethods" [value]="method.type">-->
+<!--                                    {{method.name}}-->
+<!--                                </mat-option>-->
+<!--                            </mat-select>-->
+<!--                        </mat-form-field>-->
+                        <!--<div>
+                            <button
+                            [loading]="isLoadingGeneration"
+                            mat-raised-button class="btn btn-primary btn-lg recykle-button" (click)="generateImage()">
+                            <span *ngIf="!isLoadingGeneration">Generate Card</span>
+                            </button>
+                        </div>
+                        <app-nft-card-miniature [hidden]="!nftData" [backgroundUrl]="generatedImage" [nftData]="nftData"></app-nft-card-miniature>
+                        -->
+                        <div>
+                            <button [disabled]="addPhoneForm.invalid"
+                            [loading]="isLoading"
+                            mat-raised-button class="btn btn-primary btn-lg recykle-button" (click)="sendPhoneForRecycling()">
+                            <span *ngIf="!isLoading">Recykle</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+</div>

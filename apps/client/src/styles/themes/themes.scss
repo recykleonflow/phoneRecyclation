@@ -1,0 +1,69 @@
+@use 'node_modules/@angular/material/index' as mat;
+@include mat.core();
+
+@import "../themes/default-theme.scss";
+@import "../themes/retail-theme.scss";
+@import '../themes/user-theme.scss';
+@import "apps/client/src/styles/colors";
+@import "../themes/theme-mixins.scss";
+
+$palette-green: mat.define-palette($md-green);
+$palette-blue: mat.define-palette($md-blue);
+$palette-orange: mat.define-palette($md-orange);
+$palette-magenta: mat.define-palette($md-magenta);
+$palette-red: mat.define-palette($md-red);
+
+$default-material-theme: mat.define-light-theme((
+        color: (
+                primary: $palette-green,
+                accent: $palette-blue,
+                warn: $palette-red,
+        )
+));
+
+$user-material-theme: mat.define-light-theme((
+        color: (
+                primary: $palette-blue,
+                accent: $palette-blue,
+                warn: $palette-red,
+        )
+));
+
+$retail-material-theme: mat.define-light-theme((
+        color: (
+                primary: $palette-magenta,
+                accent: $palette-blue,
+                warn: $palette-red,
+        )
+));
+
+//set theme
+.user {
+    @include mat.all-component-themes($user-material-theme);
+    @include set-theme($user-theme-map);
+}
+
+.default {
+    @include mat.all-component-themes($default-material-theme);
+    @include set-theme($default-theme-map);
+
+    .waves {
+        svg {
+            path {
+                fill: $primary-green;
+            }
+        }
+    }
+}
+.retail {
+    @include mat.all-component-themes($retail-material-theme);
+    @include set-theme($retail-theme-map);
+
+    .waves {
+        svg {
+            path {
+                fill: #333333;
+            }
+        }
+    }
+}

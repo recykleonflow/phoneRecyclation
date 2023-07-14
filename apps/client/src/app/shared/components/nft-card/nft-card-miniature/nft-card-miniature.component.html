@@ -1,0 +1,16 @@
+<div #nftCard class="card-wrapper"
+[ngClass]="{
+    'nft-card-normal': userPhone.nftData.rarity === 'NORMAL',
+    'nft-card-rare': userPhone.nftData.rarity === 'RARE',
+    'nft-card-epic': userPhone.nftData.rarity === 'EPIC',
+    'nft-card-legendary': userPhone.nftData.rarity === 'LEGENDARY'
+    }">
+    <div (click)="onClick()" class="nft-card"> 
+        <div class="front">
+            <div class="nft-card-image"><img [src]="userPhone.nftData.compositeUrl"></div>
+            <div class="nft-card-text">
+                <div class="title">{{userPhone?.model}}</div>
+            </div>
+        </div>
+    </div>
+</div>

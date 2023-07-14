@@ -1,0 +1,19 @@
+@import 'apps/client/src/styles/colors';
+
+$retail-theme-map:(
+    name: "retail",
+    logo: "/assets/images/recykle_logo_magenta.png",
+    sidebar-image: "/assets/images/sidebar-default.jpg",
+    sidebar-logo: "/assets/images/logo_placeholder.png",
+    sidebar-button-background-color: $primary-magenta,
+    sidebar-background-color: white,
+    sidebar-font-color: $primary-text,
+    sidebar-active-font-color: $primary-background,
+    card-color: $primary-magenta,
+    link-color: $primary-magenta,
+    button-color: $primary-magenta,
+    navbar-background-color: transparent,
+    navbar-font-weight: 400,
+    dropdown-color: $primary-magenta,
+    panel-background: rgb(61, 61, 61),
+)

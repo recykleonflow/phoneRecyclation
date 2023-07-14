@@ -1,0 +1,6 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <qrcode [qrdata]="ual" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+        <button mat-raised-button class="btn btn-primary btn-lg" (click)="downloadQrCode()">DOWNLOAD</button>
+    </div>
+</div>

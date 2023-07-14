@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1075784986575-i75o6n9cmrnc6k9uhf96jg508fnoj8vk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1075784986575-i75o6n9cmrnc6k9uhf96jg508fnoj8vk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB_cpLpw1ueLmsiqnW_HtLBvyb4FozLt4Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1075784986575</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.recykle.app</string>
+	<key>PROJECT_ID</key>
+	<string>recykle-13460</string>
+	<key>STORAGE_BUCKET</key>
+	<string>recykle-13460.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1075784986575:ios:5a1e63adbed8a711d46cba</string>
+	<key>DATABASE_URL</key>
+	<string>https://recykle-13460-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

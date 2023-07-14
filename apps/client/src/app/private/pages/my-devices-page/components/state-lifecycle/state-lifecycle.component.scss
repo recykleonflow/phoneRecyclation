@@ -1,0 +1,170 @@
+@import 'colors';
+
+.state-icon {
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.state-text {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.progress-circle {
+  position: absolute;
+  background-color: #212121;
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 4px solid #333333;;
+
+  -webkit-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+}
+
+.progress-line {
+    position: absolute;
+    width: 5px;
+    height: 150px;
+    margin-top: 25px;
+    margin-left: 10px;
+    background: #333333;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 25px;
+
+  .circle-wrapper {
+    width: 185px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+  }
+
+  .circle {
+    border-radius: 25px;;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--final-color);
+
+    &.selected {
+      background: var(--final-color);
+    }
+  }
+}
+
+mat-chip-listbox {
+  //685 width
+  position: relative;
+  overflow: hidden;
+
+  .mat-mdc-chip-set {
+    max-width: 200px;
+  }
+}
+
+.states-wrapper {
+  //display: inline-flex;
+  transition: color 1s;
+}
+
+.state-field {
+  font-size: 12px;
+  width: 120px;
+  //height: 30px;
+  display: flex;
+  justify-content: center;
+  //padding: 5px 20px;
+  //background: linear-gradient(to right, $primary-green 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .3s linear;
+
+  .state-wrapper {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: row;
+  }
+
+  &:after {
+    //content: "---";
+    //border-bottom: 1px solid red;
+    width: 100%;
+    bottom: 0;
+  }
+
+  &:nth-child(1) {
+   // background: linear-gradient(to right, map-get($md-green, 200) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s linear;
+  }
+
+  &:nth-child(2) {
+    //background: map-get($md-green, 400),
+    //background: linear-gradient(to right, map-get($md-green, 300) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s linear;
+  }
+
+  &:nth-child(3) {
+    //background: linear-gradient(to right, map-get($md-green, 400) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s linear;
+  }
+
+  &:last-child {
+   // background: linear-gradient(to right, $primary-green 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s linear;
+  }
+
+  &.selected {
+    color: whitesmoke;
+    background-position: left bottom;
+    .progress-circle {
+      background-color: #e20074;
+    }
+
+    &:last-child .state-wrapper {
+      color: var(--final-color);
+      font-weight: bold;
+      .progress-circle {
+        background-color: var(--final-color);
+      }
+
+      mat-icon {
+        animation: beat .5s 2 .3s alternate;
+        transform-origin: center;
+      }
+    }
+  }
+}
+
+/* Heart beat animation */
+@keyframes beat {
+  to { transform: scale(1.5); }
+}
+
+.refurbished {
+    &.selected  {
+      &:last-child .state-wrapper {
+        color: $primary-orange;
+        .progress-circle {
+          background-color: $primary-orange;
+        }
+      }
+    }
+}

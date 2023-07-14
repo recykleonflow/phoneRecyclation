@@ -1,0 +1,116 @@
+@import 'colors';
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    justify-content: center;
+    color: white;
+    @media screen and (max-width: 900px) {
+      justify-content: center;
+    }
+  }
+  
+  .card {
+    background: #333333;
+    border-radius: 20px;
+    //box-shadow: -8px 0px 0px 0px #e20074;
+  }
+
+  .reward {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 390px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  background: #212121;
+  }
+
+  .reward-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 260px;
+  }
+
+  .reward-image {
+    width: 250px;
+    height: 170px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .reward-text {
+    padding: 15px;
+    margin: 0 15px 0 15px;
+    font-size: 12px;
+  }
+
+  .reward-title {
+    height: 70px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px;
+  }
+
+  .ribbon {
+    background: $primary-blue;
+    font-weight: 500;
+    display: flex;
+    margin-top: 100px;
+    height: 30px;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.point-count {
+    //padding: 10px;
+    color: #d2d2d2;
+    width: 100%;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.points {
+    padding: 5px;
+    color: #f5d737;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.reward-button {
+  padding-bottom: 15px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reward-code {
+  color: white;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: none;
+  width: 80%;
+  height: 40px;
+}
+
+.redeem-button {
+    color: white;
+    font-weight: 500;
+    background-color: $primary-blue;
+    //border: 2px solid $primary-magenta;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.coin {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+}

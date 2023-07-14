@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="steps">
+                    <div class="step-header">
+                        <div class="step-header-number">1</div>
+                        <div class="step-header-text">Prepare Your Phone</div>
+                    </div>
+                    <div class="step-text">
+                        <p>
+                            Before you recycle your old phone, follow these steps to protect your personal data and ensure a smooth recycling process
+                        </p>
+                        <ul>
+                            <li>Back up your data</li>
+                            <li>Perform a factory reset</li>
+                            <li>Remove your SIM card and any external storage devices</li>
+                            <li>Charge your phone's battery to at least 50% (if possible)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-header">
+                        <div class="step-header-number">2</div>
+                        <div class="step-header-text">Find Drop Off Point</div>
+                    </div>
+                    <div class="step-text">
+                        <p>
+                            Once you have prepared your phone, visit the nearest recycling drop-off point.<br>
+                            Personnel will take care of the rest, ensuring that your device is responsibly recycled and its materials are reused in an environmentally friendly manner.
+                        </p>
+                    </div>
+                    <div class="step-google-map">
+                        <google-map class='oval'
+                                    [zoom]="zoom" [center]="center">
+                            <map-marker *ngFor="let markerPosition of markerPositions"
+                                        [position]="markerPosition"
+                                        [options]="markerOptions"></map-marker>
+                        </google-map>
+                    </div>
+                    
+                    <div class="step-header">
+                        <div class="step-header-number">3</div>
+                        <div class="step-header-text">Spread the Word</div>
+                    </div>
+                    <div class="step-text">
+                        <p>
+                            Encourage others to recycle their old phones by sharing our app with friends, family, and colleagues.<br>
+                            Together, we can make a difference and contribute to a greener future.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <h1>Why is Recycling Important?</h1>
+            <p>
+                Recycling your old phone helps to reduce waste, save energy, and conserve natural resources.<br>
+                It also prevents hazardous materials from entering the environment and supports the recycling industry, creating jobs and promoting a sustainable future.
+            </p>
+        </div>
+    </div>
+</div>

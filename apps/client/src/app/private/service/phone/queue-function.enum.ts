@@ -1,0 +1,5 @@
+export enum QueueFunction {
+    GET_PHONE_BY_QR = 'GET_PHONE_BY_QR',
+    RECYCLE_PHONE = 'RECYCLE_PHONE',
+    CHANGE_STATE = 'CHANGE_STATE'
+}

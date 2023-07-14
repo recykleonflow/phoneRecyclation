@@ -1,0 +1,58 @@
+@import 'colors';
+
+.phone-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+  color: $primary-text;
+
+  .phone-detail {
+    border: 2px solid $primary-green;
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
+
+.phone-history-wrapper {
+  display: flex;
+  //width: fit-content;
+  flex-direction: column;
+  height: 100%;
+  row-gap: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  .line {
+    width: 5px;
+    height: 100%;
+    display: block;
+    background-color: $primary-background;
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+  }
+
+  .historic-phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+  }
+
+  recykle-mono-phone-detail {
+    min-width: 400px;
+  }
+
+  .date-change {
+    z-index: 10;
+    display: block;
+    position: relative;
+    text-align: center;
+    top: 18px;
+    background-color: $primary-green;
+    opacity: .6;
+    padding: 5px;
+  }
+}

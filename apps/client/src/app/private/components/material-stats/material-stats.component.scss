@@ -1,0 +1,157 @@
+@import 'colors';
+
+::ng-deep .mat-tooltip {
+  pointer-events: none;
+}
+
+.metadata {
+  display: flex;
+  margin-top: 20px;
+}
+
+.data {
+  width: 270px;
+  border-radius: 18px;
+  color: white;
+  height: 270px;
+  background: black;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.data::-webkit-scrollbar {
+  display: none;
+}
+
+.left-arrow {
+  display: flex;
+  align-items: center;
+}
+
+.right-arrow {
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+}
+
+.arrow-button {
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.arrow-button:hover {
+  color: $primary-blue;
+  font-weight: 500;
+}
+
+.arrow-button:disabled {
+  color: transparent;
+}
+
+.stats {
+  padding: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+.metal-element {
+  margin: 5px;
+  display: flex;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 18px;
+  border-radius: 6px;
+  background: white;
+}
+
+.metal {
+  display: flex;
+  align-items: center;
+}
+
+.stats-title {
+  font-weight: 500;
+}
+
+.percentage {
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 2px solid #e20074;
+}
+
+.item-date {
+  font-weight: 500;
+  margin: 10px;
+  padding: 4px;
+}
+
+.stats-text {
+  padding: 5px;
+}
+
+.report-text {
+  color: white;
+}
+
+.report-icon {
+  margin-right: 5px;
+  color: $primary-blue;
+  overflow: visible;
+}
+
+.report-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+
+.stats-image {
+  margin: 10px 0 0 0;
+  width: 100%;
+  height: 60%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+mat-expansion-panel {
+  margin: 5px !important;
+  background: black !important;
+  color: white !important;
+
+  .mat-expansion-panel-header {
+    padding: 0 5px !important;
+    color: black !important;
+    height: 34px !important;
+  }
+}
+
+::ng-deep .mat-expansion-panel-header .mat-expansion-indicator::after {
+  color: #ffffff45;
+}
+
+@media (hover: none) {
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+  .mat-expansion-panel-header:hover {
+    background: black !important;
+  }
+}
+
+

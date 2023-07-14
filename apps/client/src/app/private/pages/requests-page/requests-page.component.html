@@ -1,0 +1,85 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title">Load phone</h4>
+                <p class="card-category">by qr code</p>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <div class="information">
+
+                            <button mat-raised-button class="scan-button btn btn-primary btn-lg"
+                                    (click)="toggleScanner()">Scan QR code
+                            </button>
+                            <div *ngIf="!hasLoadedQr && openScanner"
+                                 [class.fullscreen]="isMobilePhone"
+                                 class="camera">
+                                <div class="wrapper">
+                                    <zxing-scanner
+                                            (scanComplete)="onScan($event?.getText())"></zxing-scanner>
+                                    <button mat-raised-button (click)="stop()">Stop scanning ({{scannedPhones}})</button>
+                                </div>
+                            </div>
+
+                            <recykle-mono-ongoing-requests-table (afterSelection)="afterSelection($event)"
+                                                                 [data]="data"></recykle-mono-ongoing-requests-table>
+
+                            <div *ngIf="selectedRows?.length > 0" class="selection-actions oval">
+<!--                                <h4 class="card-title">Selected</h4>-->
+<!--                                <div class="phone-detail-container">-->
+<!--                                    <ng-container *ngFor="let row of selectedRows">-->
+<!--                                        <recykle-mono-phone-detail [phone]="row.response"></recykle-mono-phone-detail>-->
+<!--                                    </ng-container>-->
+<!--                                </div>-->
+                                <div class="state-select">
+                                    <div class="col">
+                                        <p class="card-category">Update state</p>
+                                        <div class="change-settings">
+
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>State</mat-label>
+                                                <mat-select #stateSelect [formControl]="stateControl">
+                                                    <mat-option *ngFor="let state of recyclationTransferStates"
+                                                                [value]="state">
+                                                        {{('recycleState.' + state) | translate}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+
+                                            <div class="recyclation-settings" *ngIf="stateSelect?.value === RecyclationState.RECYCLED">
+                                                <mat-checkbox class="recycle-action" [formControl]="batteryControl">
+                                                    Battery extracted
+                                                </mat-checkbox>
+
+                                                <mat-checkbox class="recycle-action" [formControl]="materialsControl">
+                                                    Materials extracted
+                                                </mat-checkbox>
+
+                                                <recykle-mono-material-stats *ngIf="materialsControl.value"
+                                                                             [metric]="'value'"
+                                                                             [isLoading]="materialsLoading"
+                                                                             [materials]="materialsSum$ | async">
+
+                                                </recykle-mono-material-stats>
+                                            </div>
+
+                                            <button mat-raised-button class="scan-button btn btn-primary btn-lg" (click)="transferToState(stateSelect.value)">
+                                                Update selected
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

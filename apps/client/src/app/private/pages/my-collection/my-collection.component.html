@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="content">
+                        <div class="card-count">Cards collected: {{myCards.length}}</div>
+                        <ng-container *ngTemplateOutlet="cardList">
+                        </ng-container>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #cardList>
+    <ng-container *ngIf="myCards.length > 0; else noCardMessage">
+        <ng-container *ngFor="let card of myCards">
+            <app-nft-card-miniature
+                    *ngIf="card.nftData.compositeUrl !== null"
+                    [userPhone]="card"
+            ></app-nft-card-miniature>
+        </ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #noCardMessage>
+    You dont have any cards yet!
+</ng-template>

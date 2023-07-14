@@ -1,0 +1,79 @@
+@function map-get-value($map, $key) {
+    @if map-has-key($map, $key) {
+        @return map-get($map, $key);
+    }
+    @else {
+        @error "ERROR: Specified key #{$key} does not exist in the mapping #{map-get($map,name)}";
+    }
+}
+
+@mixin set-theme($map) {
+    .main-panel {
+        background: map-get-value($map, panel-background);
+    }
+
+    .sidebar {
+        @include set-background-color-button(map-get-value($map, sidebar-button-background-color));
+        @include sidebar-background-color(map-get-value($map, sidebar-background-color), map-get-value($map, sidebar-font-color));
+        @include sidebar-active-color(map-get-value($map, sidebar-active-font-color));
+        .sidebar-background{
+            background: map-get-value($map, sidebar-background-color);
+            &:after {
+                background-image: url(map-get-value($map, sidebar-image));
+                opacity: 0.3;
+            }
+        }
+    }
+    .sidebar-logo {
+        content:url(map-get-value($map, logo));
+    }
+    .sidebar-bottom-logo {
+        content: url(map-get-value($map, sidebar-logo));
+        margin-bottom: 30px !important;
+    }
+    .logo{
+        &:after{
+            background-color: map-get-value($map, sidebar-font-color);
+            opacity: 0.2;
+        }
+    }
+    .card-header-info .card-icon,
+    .card-header-info .card-text,
+    .card-header-info:not(.card-header-icon):not(.card-header-text),
+    &.bg-info,
+    &.card-rotate.bg-info .front,
+    &.card-rotate.bg-info .back{
+      background: map-get-value($map,card-color);
+    }
+    a {
+        color: map-get-value($map,link-color);
+    }
+    .btn-primary {
+        @include bmd-raised-button-variant(map-get-value($map, button-color), map-get-value($map, button-color), map-get-value($map, button-color));
+        color: white !important;
+        background-color: map-get-value($map, button-color) !important;
+    }
+    .navbar {
+        background-color: map-get-value($map, navbar-background-color) !important;
+        @if map-has-key($map, navbar-shadow-color) {
+            @include shadow-navbar-color(map-get($map, navbar-shadow-color));   
+        }
+    }
+    .navbar-brand {
+        font-weight: map-get-value($map, navbar-font-weight);
+    }
+    .nav li .dropdown-menu a{
+        color: map-get-value($map, sidebar-font-color);;
+  }
+    .dropdown-menu {
+        .dropdown-item:hover,
+        .dropdown-item:focus,
+            a:hover,
+            a:focus,
+            a:active {
+                @include shadow-small-color(map-get-value($map, dropdown-color));
+                background-color: map-get-value($map, dropdown-color);
+                color: #FFFFFF;
+        }
+    }
+}

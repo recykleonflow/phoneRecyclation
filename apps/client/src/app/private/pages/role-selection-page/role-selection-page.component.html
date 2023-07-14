@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <h3>Select a role</h3>
+    <div class="cards-wrapper">
+        <div class="role" *ngFor="let role of roles" (click)="selectRole(role.role)">
+            <i class="icon material-icons">{{role.icon}}</i>
+            <p class="role-name">{{role.name}}</p>
+        </div>
+    </div>
+</div>

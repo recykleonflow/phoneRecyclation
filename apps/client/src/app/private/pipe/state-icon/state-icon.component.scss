@@ -1,0 +1,15 @@
+@import 'colors';
+
+.state-wrapper {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  flex-direction: row;
+}
+
+.icon-fill.final {
+  color: $primary-green;
+}

@@ -1,0 +1,97 @@
+@import 'colors';
+
+.loading-content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+ion-header {
+  ion-title {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    text-align: start;
+    margin-left: 15px;
+  }
+}
+
+ion-toolbar {
+  background: $primary-blue !important;
+  --border-width: 0 !important;
+}
+
+ion-buttons {
+  mat-icon {
+    margin-left: 10px;
+  }
+}
+
+ion-label {
+  font-size: 10px;
+}
+
+.content {
+  height: 100%;
+}
+
+.ios-content {
+  margin-top: 20px;
+}
+
+.main-panel {
+  height: 100%;
+  overflow: auto;
+}
+
+ion-tab-button {
+  &.is-active {
+    background: $primary-blue !important;
+    color: white;
+  }
+}
+
+
+.example-container {
+
+}
+mat-drawer-container {
+  height: 100%;
+}
+
+ion-title {
+  --color: $primary-text;
+
+  img {
+    height: 40px;
+    --color: $primary-blue;
+  }
+}
+
+ion-toolbar {
+  --background: $primary-background;
+  background: black;
+  color: white;
+}
+
+mat-list-item {
+  cursor: pointer;
+  &.active {
+    background-color: rgba(128, 128, 128, 0.25);
+  }
+
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.17);
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-right: 50px;
+
+  .label {
+    padding-left: 5px;
+    font-size: 14px;
+  }
+}

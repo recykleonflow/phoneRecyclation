@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">recykle</string>
+    <string name="title_activity_main">recykle</string>
+    <string name="package_name">com.recykle.app</string>
+    <string name="custom_url_scheme">com.recykle.app</string>
+</resources>

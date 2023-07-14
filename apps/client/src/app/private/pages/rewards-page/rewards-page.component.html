@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="content">
+                    <div class="point-count">
+                        Points to Redeem: <span class="points">{{user?.balance}}</span><img src="assets/images/recykle_coin.png" class="coin">
+                    </div>
+                    <ng-container *ngTemplateOutlet="RewardsList">
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #RewardsList>
+    <ng-container *ngLet="rewards$ | async as rewards">
+        <div class="reward" *ngFor="let reward of rewards">
+            <div class="reward-title">
+                {{reward.name}}
+            </div>
+            <div class="reward-body">
+                <div class="reward-image" [style.background-image]="'url(' + reward.pictureUrl + ')'">
+                    <div class="ribbon">{{reward.shortName}}</div>
+                </div>
+                <div class="reward-text">
+                    {{reward.description}}
+                </div>
+            </div>
+            <div class="reward-button">
+                <button *ngIf="reward.isClaimed" class="reward-code">
+                    {{reward.code}}
+                </button>
+                <button *ngIf="!reward.isClaimed" [disabled]="user.balance < reward.cost"
+                        #redeemButton (click)="onRedeem(reward)" mat-raised-button class="btn btn-lg redeem-button">
+                    Redeem reward <span class="points">{{reward.cost}}</span><img src="../../../../assets/images/recykle_coin.png" class="coin">
+                </button>
+            </div>
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #noRewardsMessage>
+    New rewards to redeem coming soon!
+</ng-template>

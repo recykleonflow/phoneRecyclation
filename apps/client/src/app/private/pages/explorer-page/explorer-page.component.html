@@ -1,0 +1,19 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <app-toolbar-loader *ngIf="loadingService.isToolbarLoading" [text]="loadingText"></app-toolbar-loader>
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title">Blockchain explorer</h4>
+                <p class="card-category">Search blockchain entities</p>
+            </div>
+            <div class="card-body">
+                <app-phone-table
+                    (loadingComplete)="loadingComplete()"
+                    (downloadPhoneData)="downloadPhoneData($event)"
+                    (printQr)="printQr($event)"
+                    [getPhones]="getQueriedPhones">
+                </app-phone-table>
+            </div>
+        </div>
+    </div>
+</div>

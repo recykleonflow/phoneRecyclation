@@ -1,0 +1,8 @@
+@import 'colors';
+
+.action mat-icon {
+  cursor: pointer;
+  &:hover {
+    color: $primary-orange
+  }
+}

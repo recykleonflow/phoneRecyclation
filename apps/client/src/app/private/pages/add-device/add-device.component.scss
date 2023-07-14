@@ -1,0 +1,60 @@
+@import 'colors';
+
+.generated-image {
+  img {
+    width: 400px;
+    height: auto;
+  }
+}
+
+mat-slider {
+  width: 100%;
+}
+
+.phone-details {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  a {
+    margin: 10px 0;
+  }
+
+  .row {
+    display: flex;
+    column-gap: 5px;
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 10px;
+}
+
+.recykle-button {
+  width: 200px;
+}
+
+.example-value-label {
+  font-size: 16px;
+  color: $primary-text
+}

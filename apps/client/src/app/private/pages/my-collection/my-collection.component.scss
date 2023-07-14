@@ -1,0 +1,23 @@
+@import 'colors';
+
+.content {
+    margin-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    background: #333333;
+    border-radius: 20px;
+    //box-shadow: -8px 0px 0px 0px #e20074;
+}
+
+.card-count {
+    //padding: 10px 10px 0px 10px;
+    color: #d2d2d2;
+    width: 100%;
+    font-weight: 500;
+    margin-left: 5px;
+}

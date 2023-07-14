@@ -1,0 +1,12 @@
+<div class="phone-detail oval"
+     *ngIf="phone">
+    <p *ngIf="visibleFields.includes('model')"><span class="bold">Phone:</span> <span class="value">{{phone.model}}</span></p>
+    <p *ngIf="visibleFields.includes('visualCondition')"><span
+            class="bold">Condition:</span> <span class="value">{{'phoneState.' + phone?.visualCondition | translate}}</span>
+    </p>
+    <p *ngIf="visibleFields.includes('imei')"><span class="bold">Imei:</span> <span class="value">{{phone.imei}}</span></p>
+    <p *ngIf="visibleFields.includes('state')"><span class="bold">State:</span> <span class="value">{{'recycleState.'+ phone.state | translate}}</span></p>
+<!--    <p><span class="bold">Owner:</span> <span class="value">{{phone?.owner}}</span></p>-->
+    <p *ngIf="visibleFields.includes('createdAt')"><span class="bold">Date:</span> <span class="value">{{phone.createdAt | date:'medium'}}</span></p>
+    <p *ngIf="visibleFields.includes('company') && (phone.company || phone?.name)"><span class="bold">Company:</span> <span class="value">{{phone?.company ?? phone?.name}}</span></p>
+</div>

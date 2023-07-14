@@ -1,0 +1,24 @@
+<!--<div class="row">-->
+<!--    <div class="circle-wrapper" *ngFor="let recyclationState of recyclationStates">-->
+<!--        <div class="circle" [class.selected]="recyclationState === state"></div>-->
+<!--        <span>{{recyclationState}}</span>-->
+<!--    </div>-->
+<!--    <div class="line"></div>-->
+<!--</div>-->
+
+<div #stateElement class="states-wrapper"
+     aria-label="Phone recyclation state" >
+    <div class="progress-line"></div>
+    <div class="state-field" *ngFor="let recyclationState of recyclationStates; let index = index"
+            [class.selected]="selectedIndexes.includes(index)">
+        <div class="state-wrapper">
+            <div class="progress-circle"></div>
+            <div class="state-icon">
+                <div class="icon-fill">
+                    <mat-icon>{{recyclationIcons[index]}}</mat-icon>
+                </div>
+            </div>
+            <div class="state-text">{{('recycleState.'+recyclationState) | translate}}</div>
+        </div>
+    </div>
+</div>

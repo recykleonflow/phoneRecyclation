@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <app-toolbar-loader *ngIf="loadingService.isToolbarLoading"></app-toolbar-loader>
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title">Analytics</h4>
+                <p class="card-category">Blockchain graph visualisations</p>
+            </div>
+            <div class="card-body">
+                <ng-container *ngIf="statisticData">
+                    <div class="chart-wrapper oval">
+        <!--                <h2>Total <span class="highlight">{{statisticDataTotalCount}}</span> devices. Showed by state</h2>-->
+                        <recykle-mono-graph
+                                [legendOrientation]="'right'"
+                                [data]="statisticData.stateStatistics">
+                        </recykle-mono-graph>
+                        <recykle-mono-graph
+                                [title]="'Phones by manufacturer'"
+                                [legendOrientation]="'right'"
+                                [type]="'bar'"
+                                [data]="statisticData.countsByBrands">
+                        </recykle-mono-graph>
+                        <recykle-mono-graph
+                                [title]="'Sum of recycled materials'"
+                                [legendOrientation]="'right'"
+                                [type]="'bar'"
+                                [data]="statisticData.summedMaterials">
+                        </recykle-mono-graph>
+                    </div>
+        
+        <!--            <div class="chart-wrapper oval">-->
+        <!--&lt;!&ndash;                <h2>Total <span class="highlight">{{statisticDataTotalCount}}</span> devices. Showed by model and state</h2>&ndash;&gt;-->
+        <!--                -->
+        <!--            </div>-->
+                </ng-container>  
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <app-toolbar-loader *ngIf="loadingService.isToolbarLoading"></app-toolbar-loader>
+        <div class="card">
+            <div class="card-body">
+                <div class="content">
+                    <div class="content-description">In progress: {{phonesInProgress.length}}</div>
+                    <ng-container *ngIf="phonesInProgress.length > 0; else noDevicesHandedOverMessage">
+                        <recykle-mono-phone-recyclation-state
+                            *ngFor="let device of phonesInProgress"
+                            [recycled]="false"
+                            [device]="device">
+                        </recykle-mono-phone-recyclation-state>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="content">
+                    <div class="content-description">Recykled: {{phonesRecykled.length}}</div>
+                    <ng-container *ngIf="phonesRecykled.length > 0; else noDevicesHandedOverMessage">
+                        <recykle-mono-phone-recyclation-state
+                            *ngFor="let device of phonesRecykled"
+                            [recycled]="true"
+                            [device]="device">
+                        </recykle-mono-phone-recyclation-state>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noDevicesHandedOverMessage>
+    There where no devices handed over yet!
+</ng-template>

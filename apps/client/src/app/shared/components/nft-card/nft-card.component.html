@@ -1,0 +1,64 @@
+<div *ngIf="showRewards" class="rewards">
+    <span class="points">+ {{rewardPointCount}}</span><img src="../../../../assets/images/recykle_coin.png" class="coin">
+</div>
+<div class="content">
+<img [src]="nftData.backgroundUrl" (load)="imageLoaded()" style="display: none;">
+<img [src]="nftData.phoneUrl" (load)="imageLoaded()" style="display: none;">
+<div #nftCard class="tilt">
+    <div *ngIf="isLoaded || !nftData.isRevealed" class="card-wrapper" 
+    [ngClass]="{
+    'nft-card-normal': nftData.rarity === 'NORMAL',
+    'nft-card-rare': nftData.rarity === 'RARE',
+    'nft-card-epic': nftData.rarity === 'EPIC',
+    'nft-card-legendary': nftData.rarity === 'LEGENDARY'
+    }">
+    <div (click)="onClick()" class="nft-card" [ngClass]="cardSwitched ? 'flipped' : ''">
+        <!--<div *ngIf="nftData.rarity === 'LEGENDARY'" class="night">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        -->
+        <div *ngIf="nftData.rarity === 'EPIC' || nftData.rarity === 'LEGENDARY'" class="shine"></div> 
+        <div class="front">
+            <div class="nft-card-background">
+                <div class="background-image" [style.background-image]="'url(' + nftData.backgroundUrl + ')'"></div>
+            </div>
+            <div class="ntf-card-phone">
+                <div #phoneImage class="phone-image" [style.background-image]="'url(' + nftData.phoneUrl + ')'"></div>
+            </div>
+            <div class="nft-card-text">
+                <div class="title">{{nftData?.model}}</div>
+                <div class="data">
+                        {{nftData?.state}}
+                        <br>
+                        {{nftData?.createdAt}}
+                        <br>
+                        {{nftData?.imei}}
+                </div>
+                <div class="logo"></div>
+            </div>
+        </div>
+        <div class="back">
+            <div class="recykle-logo"></div>
+        </div>
+        <div *ngIf="!nftData.isRevealed" class="grid__item">
+            <button class="particles-button">
+                <div class="reveal-text">Reveal Card</div>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="buttons">
+    <button *ngIf="isConnectedWallet && !nftData.isClaimed" #claimButton (click)="onClaim()" mat-raised-button class="btn btn-lg claim-button">
+        Claim NFT
+    </button>
+    <button *ngIf="isConnectedWallet && nftData.isClaimed" #claimButton mat-raised-button class="btn btn-lg claimed-button">
+        Claimed
+    </button>
+</div>
+<app-nft-card-metadata [userPhone]="userPhone" *ngIf="showMetadata"></app-nft-card-metadata>
+</div>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "recykle-13460"
+  },
+  "targets": {
+    "recykle-13460": {
+      "hosting": {
+        "recykle-fe": [
+          "recykle-13460"
+        ]
+      }
+    }
+  }
+}

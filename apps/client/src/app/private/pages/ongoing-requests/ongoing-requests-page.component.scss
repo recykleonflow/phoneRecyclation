@@ -1,0 +1,47 @@
+
+.selection-actions {
+  display: block;
+  background-color: white;
+  margin: 15px;
+  padding: 10px;
+}
+
+.ongoing-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+
+  .request-item {
+    flex-direction: column;
+    padding: 5px;
+    min-height: 400px;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    border: 1px solid rgba(128, 128, 128, 0.42);
+    border-radius: 2px;
+    align-items: center;
+  }
+
+}
+
+.state-select {
+  display: flex;
+  flex-wrap: wrap;
+
+  .qr-galery {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+  }
+
+  .change-settings {
+    mat-form-field {
+      display: block;
+    }
+  }
+}
+
+.example-table-container {
+  padding: 10px;
+}

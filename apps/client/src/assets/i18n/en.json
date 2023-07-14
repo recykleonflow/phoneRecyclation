@@ -1,0 +1,17 @@
+{
+  "recycleState": {
+    "RECEIVED": "Received",
+    "IN_TRANSIT": "In transit",
+    "AT_RECYCLING_COMPANY": "At recycling company",
+    "RECYCLED": "Recycled",
+    "REFURBISHED": "Refurbished",
+    "RESOLD": "Resold"
+  },
+  "phoneState": {
+    "NON_FUNCTIONAL": "Non-Functional",
+    "POOR": "Poor",
+    "FAIR": "Fair",
+    "GOOD": "Good",
+    "NEW": "Like new"
+  }
+}

@@ -1,0 +1,51 @@
+<div class="form-wrapper">
+    <div class="authBlock">
+        <h3>Log In</h3>
+        <div class="formGroup">
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" name="email"
+                       class="formControl" placeholder="" #email required>
+            </mat-form-field>
+        </div>
+        <div class="formGroup">
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" name="password"
+                       (keyup.enter)="login(email.value, userPassword.value)"
+                       class="formControl" placeholder="" #userPassword required>
+            </mat-form-field>
+        </div>
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="action-button">
+            <button mat-raised-button class="btn btn-info btn-lg"
+                    [disabled]="isLoading"
+                    (click)="login(email.value, userPassword.value)">
+                <span *ngIf="!isLoading">Log in</span>
+                <span *ngIf="isLoading" class="mini-loader"></span></button>
+        </div>
+
+        <!-- Calling GoogleAuth Api from AuthService -->
+        <div class="social">
+            <a (click)="authService.googleSignIn()">
+                <img src="/assets/icons/google.svg">
+            </a>
+            <a (click)="authService.facebookSignIn()">
+                <img class="facebook-icon"
+                     src="/assets/icons/facebook.svg">
+            </a>
+        </div>
+
+        <div class="forgotPassword">
+            <a routerLink="/public/forgot-password">Forgot Password?</a>
+        </div>
+    </div>
+    <div class="redirectToLogin">
+        <span>Don't have an account?<a class="redirect" routerLink="/public/register-user"> Sign Up</a></span>
+    </div>
+</div>
+
+
+<ng-template #loader>
+    <div class="mini-loader"></div>
+</ng-template>

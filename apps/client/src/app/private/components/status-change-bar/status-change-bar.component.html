@@ -1,0 +1,12 @@
+<div class="snack-wrapper">
+    <div class="details">
+        <p>Imei: {{data?.imei}}</p>
+        <p class="state">State: {{data?.state}}</p>
+    </div>
+    <button mat-raised-button
+            color="primary"
+            [routerLink]="role === UserRole.EMPLOYEE ? 'private/ongoing-requests' : 'private/requests'"
+            aria-label="Show request">
+        Show
+    </button>
+</div>

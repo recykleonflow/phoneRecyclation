@@ -1,0 +1,101 @@
+<div class="example-container mat-elevation-z8">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input #imei matInput [formControl]="searchControl">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="example-table-container">
+
+        <table mat-table [dataSource]="data" class="example-table"
+               matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+            <!-- Number Column -->
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let row">{{row.number}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let row">
+                    <div class="actions" *ngIf="row.ual">
+                        <mat-icon matTooltip="Open history" (click)="openHistory(row.ual)">search</mat-icon>
+<!--                        <mat-icon matTooltip="Download QR code" (click)="onPrintQr(row.ual)">qr_code</mat-icon>-->
+                        <mat-icon matTooltip="Download data to work with it" (click)="downloadInfo(row)">download</mat-icon>
+                    </div>
+                </td>
+            </ng-container>
+
+            <!-- Title Column -->
+            <ng-container matColumnDef="imei">
+                <th mat-header-cell *matHeaderCellDef>Imei</th>
+                <td mat-cell *matCellDef="let row">{{row.imei}}</td>
+            </ng-container>
+
+            <!-- State Column -->
+            <ng-container matColumnDef="model">
+                <th mat-header-cell *matHeaderCellDef>Model</th>
+                <td mat-cell *matCellDef="let row">{{row.model}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="state">
+                <th mat-header-cell *matHeaderCellDef>State</th>
+                <td mat-cell *matCellDef="let row">
+                    <recykle-mono-state-icon [state]="row.state"></recykle-mono-state-icon></td>
+            </ng-container>
+
+            <ng-container matColumnDef="materialsExtracted">
+                <th mat-header-cell *matHeaderCellDef>Materials recovered</th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox [disabled]="true"
+                                  [checked]="row.materialsExtracted"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="batteryExtracted">
+                <th mat-header-cell *matHeaderCellDef>Battery extracted</th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox [disabled]="true"
+                                  [checked]="row.batteryExtracted"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ownerEmail">
+                <th mat-header-cell *matHeaderCellDef>OwnerEmail</th>
+                <td mat-cell *matCellDef="let row">{{row.ownerEmail}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="visualCondition">
+                <th mat-header-cell *matHeaderCellDef>Condition</th>
+                <td mat-cell *matCellDef="let row">{{("phoneState."+row.visualCondition) | translate}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="phoneNumber">
+                <th mat-header-cell *matHeaderCellDef>Donor phone number</th>
+                <td mat-cell *matCellDef="let row">{{row.phoneNumber}}</td>
+            </ng-container>
+
+            <!-- Created Column -->
+            <ng-container matColumnDef="handedOverAt">
+                <th mat-header-cell *matHeaderCellDef  disableClear>
+                    Handed over at
+                </th>
+                <td mat-cell *matCellDef="let row">{{row.handedOverAt | date}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+                <th mat-header-cell *matHeaderCellDef  disableClear>
+                    Created at
+                </th>
+                <td mat-cell *matCellDef="let row">{{row.createdAt | date:'medium'}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator aria-label="Select page of phones"
+                   [length]="resultsLength"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="[5, 10, 15, 50, 100, 200]"></mat-paginator>
+</div>

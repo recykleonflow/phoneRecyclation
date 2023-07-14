@@ -1,0 +1,7 @@
+export enum UserRole {
+    CLIENT = 'CLIENT',
+    EMPLOYEE = 'EMPLOYEE',
+    RECYCLE_COMPANY = 'RECYCLE_COMPANY',
+    ADMIN = 'ADMIN',
+    NOT_VERIFIED = 'NOT_VERIFIED'
+}

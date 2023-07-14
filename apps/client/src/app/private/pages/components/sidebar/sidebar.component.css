@@ -1,0 +1,21 @@
+.sidebar-logo {
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 220px;
+    height: auto;
+}
+
+.sidebar-bottom-logo-wrapper {
+    min-height: 80px;
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+.sidebar-bottom-logo {
+    margin: auto;
+    padding-left: -50px;
+    width: 100px;
+    height: auto;
+}

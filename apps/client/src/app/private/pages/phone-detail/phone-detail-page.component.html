@@ -1,0 +1,23 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div *ngIf="historicPhones?.length > 0" class="content">
+                    <h1>History of phone {{historicPhones[0].model}} ({{historicPhones[0].imei}})</h1>
+                    <div class="phone-history-wrapper">
+                        <div class="line"></div>
+                        <div class="historic-phone" *ngFor="let historicPhone of historicPhones">
+                            <recykle-mono-phone-detail
+                                    [visibleFields]="['createdAt', 'company', 'state']"
+                                    [phone]="historicPhone"></recykle-mono-phone-detail>
+<!--                            <div class="date-change">-->
+<!--                                {{historicPhone.createdAt | date}}-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

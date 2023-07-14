@@ -1,0 +1,19 @@
+@import 'apps/client/src/styles/colors';
+
+$user-theme-map:(
+    name: "user",
+    logo: "/assets/images/recykle_logo.png",
+    sidebar-image: "/assets/images/sidebar-default.jpg",
+    sidebar-logo: "/assets/images/logo_placeholder.png",
+    sidebar-button-background-color: $primary-blue,
+    sidebar-background-color: white,
+    sidebar-font-color: $primary-text,
+    sidebar-active-font-color: $primary-background,
+    card-color: $primary-blue,
+    link-color: $primary-blue,
+    button-color: $primary-blue,
+    navbar-background-color: transparent,
+    navbar-font-weight: 400,
+    dropdown-color: $primary-blue,
+    panel-background: #202020,
+)

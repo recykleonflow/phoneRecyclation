@@ -1,0 +1,57 @@
+@import 'colors';
+
+.user-menu {
+    img {
+        width: 35px;
+        border-radius: 35px;
+        margin-left: 5px;
+    }
+}
+
+.point-count {
+    color: $primary-text;
+    width: 100%;
+    font-weight: 500;
+    margin-left: 5px;
+    justify-content: center;
+}
+
+.points {
+    color: #f5d737;
+    font-weight: 500;
+}
+
+.coin {
+    width: 16px;
+    height: 16px;
+}
+
+.waves {
+    display: none;
+}
+
+.user-info {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    //background-color: $primary-background;
+    color: $primary-text;
+    border-bottom: 1px solid $primary-background;
+    font-size: 14px;
+    flex-direction: column;
+    user-select: none;
+
+    .line {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        &.company {
+            font-size: 12px;
+        }
+    }
+    .highlight {
+        color: $primary-blue;
+    }
+
+}

@@ -1,0 +1,210 @@
+@import '../styles/material-dashboard.scss';
+@import 'apps/client/src/styles/colors';
+@import '../styles/themes/themes.scss';
+@import '@ionic/angular/css/core.css';
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+
+html {
+  --ion-safe-area-top: env(safe-area-inset-top);
+  --ion-safe-area-bottom: env(safe-area-inset-bottom);
+  --ion-safe-area-left: env(safe-area-inset-left);
+  --ion-safe-area-right: env(safe-area-inset-right);
+}
+
+
+.scanner-active * {
+  background: transparent !important;
+}
+
+body.scanner-active {
+  --background: transparent !important;
+  --ion-background-color: transparent !important;
+  background: transparent !important;
+}
+
+@media print {
+  //body * {
+  //        display: none;
+  //}
+
+  canvas {
+    display: block;
+  }
+}
+
+.ion-page {
+  overflow: auto;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.card, .card-header, .nav-link, .oval, .map-container, canvas {
+  border-radius: 15px !important;
+}
+
+.mdc_checkbox__background {
+  border-radius: 5px;
+}
+
+.green-circle {
+  border-radius: 200px;
+  width: 200px;
+  height: 200px;
+  background: $primary-green;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #444;
+  margin: calc(50vh - 28px) auto;
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 4px solid #444;
+    border-right: 4px solid #444;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 4px -4px 0 4px #ffffff;
+  }
+
+  &:after {
+    top: 34px;
+    left: 30px;
+    border: none;
+    border-bottom: 4px solid #444;
+    border-left: 4px solid #444;
+    box-shadow: -4px 4px 0 4px #ffffff;
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  box-shadow: none !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-content: center !important;
+  justify-content: center !important;
+  //overflow: visible !important;
+  margin: 20px !important;
+}
+
+.cdk-overlay-container {
+  z-index: 2000 !important;
+  //overflow: visible !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  //overflow: visible;
+}
+
+.cdk-overlay-pane {
+  max-width: 90vw !important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  //scale: 1.1;
+}
+
+.mat-expansion-panel-body {
+  margin-top: 5px !important;
+  font-size: 12px !important;
+  padding: 0 !important;
+}
+
+.waves {
+  display: flex !important;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+.navbar-toggler {
+  background: white !important;
+}
+
+.ion-page {
+  background: #212121;
+}
+
+app-loading-page {
+  background-color: white !important;
+  z-index: 99999;
+  position: relative;
+}
+
+.main-content {
+  background: #212121;
+}
+
+.footer {
+  background: #1e1e1e !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  color: #333333 !important;
+
+  a {
+    color: #ffffffad !important;
+  }
+}
+
+.navbar-nav {
+  color: white !important;
+  font-weight: 300 !important;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.mini-loader {
+  width : 25px;
+  height: 25px;
+  border: 5px solid $primary-green;
+  border-bottom-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}

@@ -1,0 +1,19 @@
+<div class="content">
+    <h2 mat-dialog-title>Redeem reward</h2>
+    <mat-dialog-content>
+        <div class="reward-body">
+            <div class="reward-image" [style.background-image]="'url(' + reward.pictureUrl + ')'">
+                <div class="ribbon">{{reward.shortName}}</div>
+            </div>
+            <div class="reward-text">
+                {{reward.description}}
+            </div>
+        </div>
+      <div class="confirmation">Are you sure you want to redeem this reward?</div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="col"></div>
+      <button mat-button class="cancel-button" [mat-dialog-close]="false">Cancel</button>
+      <button mat-button class="confirm-button" [mat-dialog-close]="true" cdkFocusInitial>Confirm<span class="points">{{reward.cost}}</span><img src="../../../../assets/images/recykle_coin.png" class="coin"></button>
+    </mat-dialog-actions>
+</div>

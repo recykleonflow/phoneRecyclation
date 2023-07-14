@@ -1,0 +1,87 @@
+@import 'colors';
+
+.public-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background: #f2f2f2;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: white;
+    padding: 50px;
+    z-index: 1;
+
+    @media screen and (max-width: 900px) {
+      height: 100vh;
+    }
+  }
+
+  .login-logo {
+    width: 350px;
+    height: auto;
+    content:url("/assets/images/recykle_logo.png");
+  }
+
+  .green-circle {
+    z-index: 0;
+    position: absolute;
+    &.bottom {
+      bottom: 20px;
+      right: 40px;
+    }
+
+    &.left {
+      top: -30px;
+      left: -30px;
+      width: 350px;
+      height: 350px;
+      border-radius: 350px;
+      overflow: hidden;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form-wrapper {
+  width: 250px;
+  text-align: center;
+}
+
+.social {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+
+  a {
+    cursor: pointer;
+  }
+
+  img {
+    width: 50px;
+
+    &.facebook-icon {
+      width: 45px;
+    }
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+.action-button {
+  margin-top: 20px;
+}

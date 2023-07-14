@@ -1,0 +1,75 @@
+@import 'colors';
+
+/* Structure */
+.full-width {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-bottom: 20px;
+  background: #fff;
+}
+
+mat-paginator {
+  border-radius: 15px;
+}
+
+.example-container {
+  position: relative;
+  border-radius: 20px;
+}
+
+.actions {
+  mat-icon {
+    margin: 2px;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-orange;
+    }
+  }
+}
+
+.example-table-container {
+  position: relative;
+  min-height: 200px;
+  max-height: 65vh;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+
+.mat-column-created {
+  max-width: 124px;
+}
+
+mat-paginator {
+  position: sticky;
+  bottom: 0;
+}
+
+mat-icon {
+  cursor: pointer;
+}

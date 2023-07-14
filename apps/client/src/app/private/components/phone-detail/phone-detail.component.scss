@@ -1,0 +1,15 @@
+@import 'colors';
+
+.phone-detail {
+  color: $primary-text;
+  background-color: $primary-background;
+  padding: 5px 10px;
+  display: grid;
+
+  .bold {
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 140px;
+    display: inline-block;
+  }
+}

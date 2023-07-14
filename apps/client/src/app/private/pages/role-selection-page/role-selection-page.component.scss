@@ -1,0 +1,45 @@
+@import 'colors';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+
+  .role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 128, 0, 0.26);
+    background-color: $primary-green;
+    transition: background-color 1s;
+    padding: 30px;
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.35);
+    }
+
+    .role-name {
+      text-align: center;
+    }
+
+    .icon {
+      height: 40px;
+      width: 40px;
+      font-size: 40px;
+    }
+  }
+}

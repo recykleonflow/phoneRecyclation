@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title">Requests</h4>
+                <p class="card-category">Actual requests</p>
+            </div>
+            <div class="content">
+                <div class="example-table-container">
+                    <recykle-mono-ongoing-requests-table (afterSelection)="afterSelection($event)"
+                                                         [data]="data">
+                    </recykle-mono-ongoing-requests-table>
+                    <div *ngIf="selectedRows?.length > 0" class="selection-actions oval">
+                        <h4 class="card-title">Selected</h4>
+                        <div class="state-select">
+                            <div class="col">
+                                <p class="card-category">Update state</p>
+                                <div class="change-settings">
+                                    <ng-container *ngIf="isAdmin; else transferMovement">
+                                        <mat-form-field
+                                                class="example-full-width">
+                                            <mat-label>State</mat-label>
+                                            <mat-select #stateSelect>
+                                                <mat-option *ngFor="let state of recyclationTransferStates" [value]="state">
+                                                    {{('recycleState.'+state) | translate}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <button mat-raised-button class="scan-button btn btn-primary btn-lg" (click)="transferToState(stateSelect.value)">Update selected</button>
+                                    </ng-container>
+                
+                                    <ng-template #transferMovement>
+                                        <button mat-raised-button class="scan-button btn btn-primary btn-lg" (click)="transferToState(RecycleState.IN_TRANSIT)">Move to transit <mat-icon>local_shipping</mat-icon></button>
+                                    </ng-template>
+                                </div>
+                            </div>
+                
+                            <div class="col">
+                                <p class="card-category">Actions</p>
+                                <div class="qr-galery" style="display: none">
+                                    <qrcode *ngFor="let selectedItem of selectedRows"
+                                            class="oval"
+                                            [qrdata]="selectedItem.ual"
+                                            [width]="256"
+                                            [errorCorrectionLevel]="'M'"></qrcode>
+                                </div>
+                                <button mat-raised-button class="scan-button btn btn-primary btn-lg" (click)="printSelected()">Print selected</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

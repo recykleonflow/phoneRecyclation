@@ -1,0 +1,530 @@
+@import 'colors';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tilt {
+  width: 250px;
+  height: 415px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.night{
+  z-index: 99;
+  position: absolute;/* position: relative; */
+  width: 120%;
+  height: 100%;
+  transform: rotateZ(40deg);
+}
+
+.star{
+  z-index: 99;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 4px;
+  background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px #699BFF);
+  animation: tail 3s ease-in-out infinite,
+             falling 3s ease-in-out infinite;
+}
+
+@keyframes tail{
+  0%{
+    width: 0;
+  }
+  30%{
+    width: 100px;
+  }
+  100%{
+    width: 0;
+  }
+}
+
+@keyframes falling{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(300px);
+  }
+}
+
+.star::before, .star::after{
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 0;
+  height: 4px;
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+  border-radius: 100%;
+  transform: translateX(50%) rotateZ(45deg);
+  animation: shining 3s ease-in-out infinite;
+}
+
+@keyframes shining{
+  0%{
+    width: 0;
+  }
+  50%{
+    width: 30px;
+  }
+  100%{
+    width: 0;
+  }
+}
+
+.star::after{
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star:nth-child(1){
+  top: calc(50% - 100px);
+  left: calc(50% - 250px);
+  animation-delay: 1s;
+}
+
+.star:nth-child(1)::before, .star:nth-child(1)::after{
+  animation-delay: 1s;
+}
+
+.star:nth-child(2){
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(2)::before, .star:nth-child(2)::after{
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(3){
+  top: calc(50% - 0px);
+  left: calc(50% - 150px);
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(3)::before, .star:nth-child(3)::after{
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(4){
+  top: calc(50% - -50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(4)::before, .star:nth-child(4)::after{
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(5){
+  top: calc(50% - -100px);
+  left: calc(50% - 250px);
+  animation-delay: 1.8s;
+}
+
+.star:nth-child(5)::before, .star:nth-child(5)::after{
+  animation-delay: 1.8s;
+}
+
+.shine {
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(120deg, 
+    #fff0 45%, 0%,
+    #fff4 50%, 0%,
+    #fff0 calc(50% + 10px), 0%,
+    #fff7 calc(50% + 30px), 0%,
+    #fff0 calc(50% + 40px), 0%,
+    #fff4 calc(50% + 50px), 0%,
+    #fff0 0%
+  ) 100% / 300% 100%, /* Add this line */
+  /* your other background settings */;
+  /* your other styles */
+  animation: shine 4s ease infinite;
+  z-index: 99;
+}
+
+@keyframes shine {
+  0%, 75% {
+    background-position-x: 110%;    
+  }
+  100% {
+    background-position-x: -10%;    
+  }
+}
+
+  .card-wrapper {
+    width: 250px;
+    height: 400px;
+    margin: 10px 5px 10px 5px;
+    border-radius: 18px;
+    transform-style: preserve-3d;
+  }
+
+  .nft-card-normal {
+    box-shadow: none;
+    .background-image {
+      animation: none !important;
+    }
+  }
+  
+  .nft-card-rare {
+    box-shadow: 0 0 5px 5px $rarity-rare;
+    .background-image {
+      animation: none !important;
+    }
+  }
+  
+  .nft-card-epic {
+    box-shadow: 0 0 5px 5px $rarity-epic;
+  }
+  
+  .nft-card-legendary {
+    box-shadow: 0 0 5px 5px $rarity-legendary;
+  }
+
+  .front {
+    transform-style: preserve-3d;
+  }
+
+  //.nft-card:hover {  
+  //  box-shadow: 0 0 15px $primary-magenta;
+  //}
+
+  .nft-card div {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .nft-card {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    border-radius: 18px;
+    background: #222222;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    cursor: pointer;
+    transform-style: preserve-3d;
+  }
+  
+  .ntf-card-phone {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+  }
+
+  .phone-image {
+    //transform: translateZ(20px);
+    width: 75%;
+    height: 75%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .nft-card-background {
+    position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 250px;
+    height: 290px; /* Set a height for your background image */
+    overflow: hidden;
+  }
+  
+  .background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: image-move 20s linear infinite;
+  }
+  
+  @keyframes image-move {
+    0%, 100% {
+      transform: translateY(0%) scale(1);
+    }
+  
+    12.5% {
+      transform: translateY(-2.5%) scale(1.1);
+    }
+  
+    25% {
+      transform: translateY(-5%) scale(1.2);
+    }
+  
+    37.5% {
+      transform: translateY(-2.5%) scale(1.3);
+    }
+  
+    50% {
+      transform: translateY(0%) scale(1.4);
+    }
+  
+    62.5% {
+      transform: translateY(2.5%) scale(1.3);
+    }
+  
+    75% {
+      transform: translateY(5%) scale(1.2);
+    }
+  
+    87.5% {
+      transform: translateY(2.5%) scale(1.1);
+    }
+  }
+ 
+  .nft-card-text {
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    grid-area: text;
+    background-image: linear-gradient(#fff0 0%, #fff0 5%, #222222 15%);
+    margin-top: -15px;
+  }
+  .nft-card-text .data {
+    //transform: translateZ(20px);
+    color: #786d71;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    margin-top:15px;
+    margin-left:10px;
+  }
+  .nft-card-text .title {
+    //transform: translateZ(20px);
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-top:20px;
+    font-size:20px;
+  }
+  .nft-card-text .state {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(120 109 113);;
+    margin-top:5px;
+  }
+  .nft-card-text .logo {
+    //transform: translateZ(20px);
+    margin-top: 30px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background: url('../../../../assets/images/flow-logo.png');
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+  }
+
+  .rgb::after {
+    content:"";
+    background: linear-gradient(45deg,
+    #ffffff 0%, 
+    #fce0ee 10%,
+    #f6b3d5 20%,
+    #f180ba 30%,
+    #eb4d9e 40%,
+    #e62689 50%,
+    #e20074 60%,
+    #df006c 70%,
+    #da0061 80%,
+    #d60057 90%,
+    #cf0044 100%,)
+    repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    filter: blur(8px);
+    transform: translateZ(-1px); /*or z-index */
+    animation: rgb 6s linear infinite;
+  }
+
+  @keyframes rgb {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .gradient::after {
+    z-index: -1;
+    content:"";
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    transform: translateZ(-1px); /*or z-index */
+    background: linear-gradient(45deg,
+    #ffffff 0%, 
+    #fce0ee 10%,
+    #f6b3d5 20%,
+    #f180ba 30%,
+    #eb4d9e 40%,
+    #e62689 50%,
+    #e20074 60%,
+    #df006c 70%,
+    #da0061 80%,
+    #d60057 90%,
+    #cf0044 100%,)
+    repeat 0% 0% / 300% 100%;
+    animation: gradient 2s linear infinite;
+  }
+  
+  @keyframes gradient {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .flipped {
+    rotate: y 180deg;
+  }
+
+  .back {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: url("../../../../assets/images/card-back.jpg");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    position: absolute;
+    rotate: y 180deg;
+  }
+
+  .recykle-logo {
+    width: 100px;
+    height: 100px;
+    background: url('../../../../assets/images/logo_white_big.png');
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  //-----------------------------
+
+.grid__item {
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+	--color-item-bg: linear-gradient(120deg, #f26fcc 0%, #fff268 100%);
+	--color-button-bg: #000000;
+	--color-button-text: #fff;
+	--button-padding: 1.5rem 3rem;
+	--radius-button: 5px;
+	--border-button: 0;
+}
+
+.particles-button {
+  width: 250px;
+  height: 400px;
+  z-index: 99;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	border-radius: 5px;
+	border-radius: var(--radius-button);
+	background: var(--color-button-bg);
+  background-image: url("../../../../assets/images/card-cover.jpg");
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+	color: var(--color-button-text);
+	border: 0;
+	border: var(--border-button);
+	margin: 0;
+	will-change: transform;
+  border-radius: 15px;
+}
+
+.reveal-text {
+  font-weight: bold;
+  font-size: 28px;
+  color: $primary-background,
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  margin: 10px;
+}
+
+.claimed-button {
+  color: white;
+  font-weight: bold;
+  background-color: $primary-blue;
+  border: 2px solid $primary-blue;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.claim-button {
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid $primary-blue;
+  border-radius: 5px;
+  box-shadow: none;
+}
+.claim-button:hover {
+  background-color: $primary-blue;
+}
+
+.points {
+  margin: 30px 0 30px 0;
+  color: #f5d737;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.coin {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.rewards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

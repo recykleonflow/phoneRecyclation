@@ -1,0 +1,24 @@
+<mat-card class="phone-item">
+    <div class="phone-content">
+        <div class="item-header">
+            <div class="left-side">
+                <mat-card-title>{{device.model}}</mat-card-title>
+                <mat-card-subtitle>IMEI: {{device.imei}}</mat-card-subtitle>
+            </div>
+            <div class="right-side">
+            </div>
+        </div>
+        <div class="item-content">
+            <recykle-mono-state-lifecycle [state]="device.state"></recykle-mono-state-lifecycle>
+            <div class="item-image" >
+                <div class="phone-image" [style.background-image]="'url(' + device.phoneUrl + ')'"></div>
+                <button *ngIf="(device.state===recyclationStates.RECYCLED ||
+                device.state === recyclationStates.REFURBISHED ||
+                device.state === recyclationStates.RESOLD)
+                && !device.nftData?.isRevealed" (click)="onGetCard()" mat-raised-button class="btn btn-lg get-card-button shake">
+                    Get Card
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-card>

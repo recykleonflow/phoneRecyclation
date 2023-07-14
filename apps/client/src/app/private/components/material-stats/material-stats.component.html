@@ -1,0 +1,26 @@
+<ng-container *ngIf="!isLoading; else loaderBar">
+    <ng-container *ngIf="materials">
+        <div class="stats">
+            <!--    <div class="stats-title">Metals Retrieved</div>-->
+            <div *ngFor="let material of materialArray"
+                 class="metal" [matTooltip]="material.fullName">
+                <div class="metal-element">
+                    {{material.name}}
+                </div>
+                <mat-progress-bar mode="determinate" [value]="material.percentage"></mat-progress-bar>
+                <div *ngIf="metric === 'percentage'; else value"
+                     class="percentage">{{material.percentage}}%</div>
+
+                <ng-template #value>
+                    <div class="percentage">{{material.value}}g</div>
+                </ng-template>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #loaderBar>
+    <div class="mini-loader"></div>
+</ng-template>
+
+
